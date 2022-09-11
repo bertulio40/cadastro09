@@ -1,8 +1,10 @@
-  public class Cadastro {
+import java.io.FileOutputStream;
+
+public class Cadastro  {
     private String Nome;
-    private String telefone;
+    private String cpf;
     private String endereço;
-    private String email;
+
     public String getNome() {
         return Nome;
     }
@@ -14,17 +16,13 @@
         Nome = nome.toUpperCase();
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getcpf() {
+        return cpf;
     }
-    public void setTelefone(String telefone) {
-        if(telefone.length()< 11) {
-            System.out.println("Seu telefone precisa ter ddd + telefone");
-        }else {
-            StringBuilder ddd = new StringBuilder(telefone);
-            ddd.insert(0, "(");
-            ddd.insert(3, ")");
-            this.telefone = ddd.toString();
+    public void setcpf(String cpf) {
+        if(cpf.length()< 11) {
+            System.out.println("Seu CPF precisa ter 11 numeros ");
+            this.cpf = cpf;
         }
 
     }
@@ -35,11 +33,20 @@
         this.endereço = endereço;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-}
+
+
+      @Override
+      public String toString() {
+          final StringBuilder sb = new StringBuilder("Cadastro{");
+          sb.append("Nome='").append(Nome).append('\'');
+          sb.append(", cpf='").append(cpf).append('\'');
+          sb.append(", endereço='").append(endereço).append('\'');
+
+          return sb.toString();
+
+    }
+  }
 
 
 
